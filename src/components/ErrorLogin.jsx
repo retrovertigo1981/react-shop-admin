@@ -8,7 +8,7 @@ const ErrorLogin = () => {
           <span className="font-medium">Error!</span>
           <button onClick={() => auth.setOpenError(false)}>X</button>
         </div>
-        <p className=" text-center">Error de Ingreso</p>
+        <p className=" text-center">{auth.errorMsn}</p>
       </div>
     </>
   );

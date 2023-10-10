@@ -4,6 +4,7 @@ import { useAuth } from '@hooks/useAuth';
 import { useRouter } from 'next/router';
 
 import ErrorLogin from '@components/ErrorLogin';
+import Link from 'next/link';
 
 export default function LoginPage() {
   const emailRef = useRef(null);
@@ -19,15 +20,14 @@ export default function LoginPage() {
     auth
       .signIn(email, password)
       .then(() => {
-        console.log('Login success');
         route.push('/dashboard');
       })
       .catch(function (error) {
         if (error.response?.status === 401) {
-          console.log('email o password incorrectos');
           auth.setOpenError(true);
+          auth.setErrorMsn(error.message);
         } else {
-          console.log('Error de Conexion');
+          auth.setErrorMsn(error.message);
         }
       });
   };
@@ -84,9 +84,9 @@ export default function LoginPage() {
               </div>
 
               <div className="text-sm">
-                <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+                <Link href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
                   Forgot your password?
-                </a>
+                </Link>
               </div>
             </div>
 
