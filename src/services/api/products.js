@@ -13,4 +13,9 @@ const addProducts = async (body) => {
   return response.data;
 };
 
-export { addProducts };
+const deleteProduct = async (id) => {
+  const response = await axios.delete(endPoints.products.deleteProduct(id));
+  return response.data;
+};
+
+export { addProducts, deleteProduct };
