@@ -9,7 +9,6 @@ import endPoints from '@services/api';
 import useAlert from '@hooks/useAlert';
 import Alert from '@common/Alert';
 import { deleteProduct } from '@services/api/products';
-import Image from 'next/image';
 
 export default function Products() {
   const [products, setProducts] = useState([]);

@@ -3,7 +3,6 @@ import { Fragment } from 'react';
 import { useAuth } from '@hooks/useAuth';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { BellIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import Image from 'next/image';
 
 const navigation = [
   { name: 'Dashboard', href: '#', current: true },

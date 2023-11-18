@@ -4,7 +4,6 @@ import Paginate from '@components/Paginate';
 import Chart from '@common/Chart';
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default function Dashboard() {
   const PRODUCT_LIMIT = 6;

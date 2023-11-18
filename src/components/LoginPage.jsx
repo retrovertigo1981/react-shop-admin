@@ -5,7 +5,6 @@ import { useRouter } from 'next/router';
 
 import ErrorLogin from '@components/ErrorLogin';
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default function LoginPage() {
   const emailRef = useRef(null);
