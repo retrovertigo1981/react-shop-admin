@@ -16,6 +16,8 @@ export const useAuth = () => {
 
 function useProvideAuth() {
   const [user, setUser] = useState(null);
+  const [openError, setOpenError] = useState(false);
+  const [errorMsn, setErrorMsn] = useState(null);
 
   const signIn = async (email, password) => {
     const options = {
@@ -37,8 +39,12 @@ function useProvideAuth() {
     }
   };
 
-  const [openError, setOpenError] = useState(false);
-  const [errorMsn, setErrorMsn] = useState(null);
+  const logout = () => {
+    Cookie.remove('token');
+    setUser(null);
+    delete axios.defaults.headers.Authorization;
+    window.location.href = '/login';
+  };
 
-  return { user, signIn, openError, setOpenError, errorMsn, setErrorMsn };
+  return { user, signIn, openError, setOpenError, errorMsn, setErrorMsn, logout };
 }

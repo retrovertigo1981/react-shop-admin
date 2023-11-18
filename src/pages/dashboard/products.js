@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { PlusIcon, XCircleIcon } from '@heroicons/react/24/solid';
+// import { Spinner } from '@material-tailwind/react';
 import Link from 'next/link';
 import Modal from '@common/Modal';
 import FormProduct from '@components/FormProduct';
@@ -8,6 +9,7 @@ import endPoints from '@services/api';
 import useAlert from '@hooks/useAlert';
 import Alert from '@common/Alert';
 import { deleteProduct } from '@services/api/products';
+import Image from 'next/image';
 
 export default function Products() {
   const [products, setProducts] = useState([]);
@@ -96,7 +98,7 @@ export default function Products() {
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center">
                           <div className="flex-shrink-0 h-10 w-10">
-                            <img className="h-10 w-10 rounded-full" src={product?.images[0]} alt="" />
+                            <img className="h-10 w-10 rounded-full" src={product?.images[0]} width={100} height={100} alt="" />
                           </div>
                           <div className="ml-4">
                             <div className="text-sm font-medium text-gray-900">{product?.title}</div>
@@ -116,7 +118,6 @@ export default function Products() {
                         </Link>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        {/* {alert && <h3>Delete</h3>} */}
                         <XCircleIcon className=" flex-shrink-0 h-6 w-6 text-gray-400 cursor-pointer" aria-hidden="true" onClick={() => handleDelete(product?.id)} />
                       </td>
                     </tr>
